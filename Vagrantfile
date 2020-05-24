@@ -2,11 +2,11 @@
 # vim: set ft=ruby :
 
 MACHINES = {
-  :nfs-server => {
+  :nfsserver => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.101'
   },
-  :nfs-client => {
+  :nfsclient => {
         :box_name => "centos/7",
         :ip_addr => '192.168.11.102'
   }
