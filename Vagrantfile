@@ -33,7 +33,18 @@ Vagrant.configure("2") do |config|
             mkdir -p ~root/.ssh; cp ~vagrant/.ssh/auth* ~root/.ssh
             yum install vim -y
           SHELL
-
       end
+          config.vm.define "nfsserver" do |nfsserver|
+                nfsserver.vm.provision "shell", inline: <<-SHELL
+                echo `hostname`
+                # здесь для server
+                SHELL
+          end
+          config.vm.define "nfsclient" do |nfsclient|
+                nfsclient.vm.provision "shell", inline: <<-SHELL
+                echo `hostname`
+                # здесь для client
+                SHELL
+          end
   end
 end
