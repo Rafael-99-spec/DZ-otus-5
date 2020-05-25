@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 
           #box.vm.network "forwarded_port", guest: 3260, host: 3260+offset
 
-          box.vm.network "private_network", ip: boxconfig[:ip_addr]
+          #box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
           box.vm.provider :virtualbox do |vb|
             vb.customize ["modifyvm", :id, "--memory", "512"]
@@ -35,14 +35,14 @@ Vagrant.configure("2") do |config|
           SHELL
       end
           config.vm.define "nfsserver" do |nfsserver|
-                config.vm.network "public_network", ip: "10.0.2.15"
+                config.vm.network "private_network", ip: "192.168.50.4"
                 nfsserver.vm.provision "shell", inline: <<-SHELL
                 echo `hostname`
                 # здесь для server
                 SHELL
           end
           config.vm.define "nfsclient" do |nfsclient|
-                config.vm.network "public_network", ip: "10.0.2.16"
+                config.vm.network "private_network", ip: "192.168.50.4"
                 nfsclient.vm.provision "shell", inline: <<-SHELL
                 echo `hostname`
                 # здесь для client
