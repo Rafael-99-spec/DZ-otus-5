@@ -35,14 +35,14 @@ Vagrant.configure("2") do |config|
           SHELL
       end
           config.vm.define "nfsserver" do |nfsserver|
-                config.vm.network "private_network", ip: "192.168.50.4"
+                #config.vm.network "private_network", ip: "192.168.50.4"
                 nfsserver.vm.provision "shell", inline: <<-SHELL
                 echo `hostname`
                 # здесь для server
                 SHELL
           end
           config.vm.define "nfsclient" do |nfsclient|
-                config.vm.network "private_network", ip: "192.168.50.4"
+                #config.vm.network "private_network", ip: "192.168.50.4"
                 nfsclient.vm.provision "shell", inline: <<-SHELL
                 echo `hostname`
                 # здесь для client
