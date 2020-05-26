@@ -47,7 +47,6 @@
    sudo systemctl disable NetworkManager
    sudo chkconfig network on
    sudo touch /etc/sysconfig/network
-   sudo systemctl restart network
 
 
 
