@@ -41,21 +41,14 @@
    41  reboot 0
    42  systemctl status network
    
-    1  sudo sed '5d' /etc/sysconfig/network-scripts/ifcfg-eth0
-    2  sudo cat /etc/sysconfig/network-scripts/ifcfg-eth1
-    3  sudo sed '{1-3}d' /etc/sysconfig/network-scripts/ifcfg-eth1
-    4  sudo sed '{1;2;3}d' /etc/sysconfig/network-scripts/ifcfg-eth1
-    5  sudo sed '1d;2d;3d' /etc/sysconfig/network-scripts/ifcfg-eth1
-    6  sudo chkconfig network on
-    7  systemctl status network
-    8  systemctl restart network
-    9  sudo systemctl restart network
-   10  systemctl restart network
-   11  systemctl status network
-   12  touch /etc/sysconfig/network
-   13  sudo touch /etc/sysconfig/network
-   14  sudo systemctl stop NetworkManager
-   15  sudo systemctl disable NetworkManager
+   sudo sed '5d' /etc/sysconfig/network-scripts/ifcfg-eth0
+   sudo sed '1d;2d;3d' /etc/sysconfig/network-scripts/ifcfg-eth1
+   sudo systemctl stop NetworkManager
+   sudo systemctl disable NetworkManager
+   sudo chkconfig network on
+   sudo touch /etc/sysconfig/network
+   sudo systemctl restart network
+
 
 
 192.168.11.101:/mount	/mount		nfs	_netdev,x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.device-timeout=10	0 0
