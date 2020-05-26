@@ -1,3 +1,4 @@
+#!/bin/bash
 sudo yum -y install nfs-utils
 sudo chmod 777 /etc/idmapd.conf
 sudo chmod 777 /etc/exports
