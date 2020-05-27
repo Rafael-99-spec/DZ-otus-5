@@ -1,0 +1,11 @@
+[Unit]
+Description = NFS Share
+Requires=NetworkManager-wait-online.service
+After=NetworkManager-wait-online.service
+
+[Automount]
+Where=/mntr/db
+TimeoutIdleSec=301
+
+[Install]
+WantedBy=multi-user.target
