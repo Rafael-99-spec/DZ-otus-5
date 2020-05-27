@@ -48,5 +48,21 @@
    sudo chkconfig network on
    sudo touch /etc/sysconfig/network
    sudo reboot 0
+   
+   Attempt
+    1  sudo systemctl stop NetworkManager
+    2  sudo systemctl disable NetworkManager
+    3  sudo sed -i '5d' /etc/sysconfig/network-scripts/ifcfg-eth0
+    4  sudo sed -i '1d;2d;3d' /etc/sysconfig/network-scripts/ifcfg-eth1
+    5  cat /etc/sysconfig/network-scripts/ifcfg-eth0
+    6  cat /etc/sysconfig/network-scripts/ifcfg-eth1
+    7  sudo systemctl start NetworkManager
+    8  sudo systemctl enable NetworkManager
+    9  systemctl start network
+   10  sudo systemctl start network
+   11  sudo systemctl stop NetworkManager
+   12  sudo systemctl disable NetworkManager
+   13  sudo systemctl restart network
+
 
 192.168.11.101:/mount	/mount		nfs	_netdev,x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.device-timeout=10	0 0
