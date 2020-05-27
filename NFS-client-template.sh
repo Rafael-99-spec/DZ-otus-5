@@ -41,8 +41,8 @@
    41  reboot 0
    42  systemctl status network
    
-   sudo sed '5d' /etc/sysconfig/network-scripts/ifcfg-eth0
-   sudo sed '1d;2d;3d' /etc/sysconfig/network-scripts/ifcfg-eth1
+   sudo sed -i '5d' /etc/sysconfig/network-scripts/ifcfg-eth0
+   sudo sed -i '1d;2d;3d' /etc/sysconfig/network-scripts/ifcfg-eth1
    sudo systemctl stop NetworkManager
    sudo systemctl disable NetworkManager
    sudo chkconfig network on
