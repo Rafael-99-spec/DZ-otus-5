@@ -1,13 +1,13 @@
 [Unit]
 Description = Mount NFS Share
-Requires=network-online.target
-After=network-online.target
+Requires=network-online.service
+After=network-online.service
 
 [Mount]
 What=192.168.11.101:/mount/upload
 Where=/shared/upload
 Type=nfs
-Options=defaults
+Options=defaults,_netdev
 
 [Install]
 WantedBy=multi-user.target
