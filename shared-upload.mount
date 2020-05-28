@@ -1,11 +1,11 @@
 [Unit]
 Description = Mount NFS Share
 Requires=network-online.target
-After=network-online.service
+After=network-online.target
 
 [Mount]
-What=192.168.11.101:/mount
-Where=/mntr/db
+What=192.168.11.101:/mount/upload
+Where=/shared/upload
 Type=nfs
 Options=defaults
 
