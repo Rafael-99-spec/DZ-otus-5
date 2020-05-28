@@ -96,3 +96,24 @@
    96  sudo systemctl daemon-reload
    97  df -h
    98  sudo systemctl status shared-upload.mount 
+   
+    1  sudo vi /etc/systemd/system/shared-upload.mount
+    2  sudo mkdir -p /shared/upload
+    3  sudo chmod 777 /shared/upload
+    4  sudo chmod 777 /shared
+    5  sudo systemctl start shared-upload.mount
+    6  df -h
+    7  sudo systemctl enable shared-upload.mount
+    8  sudo reboot 0
+    9  df -h
+   10  sudo cat /var/log/messages 
+   11  sudo cat /var/log/messages | grep systemd
+   12  sudo cat /var/log/messages
+   13  sudo cat /var/log/messages | grep systemd
+   14  sudo cat /var/log/messages
+   15  sudo vi /etc/systemd/system/shared-upload.mount
+   16  sudo systemctl restart shared-upload.mount
+   17  sudo systemctl daemon-reload
+   18  df -h
+   19  history
+
