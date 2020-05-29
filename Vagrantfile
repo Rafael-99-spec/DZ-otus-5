@@ -59,12 +59,19 @@ Vagrant.configure("2") do |config|
                 sudo yum -y install nfs-utils
                 sudo systemctl start rpcbind
                 sudo systemctl enable rpcbind
+                sudo /sbin/chkconfig network off
+                sudo systemctl stop network
                 cd /
-                sudo mkdir /mount
-                sudo chmod 766 /etc/fstab
-                sudo echo "192.168.11.101:/mount  /mount		nfs        _netdev,x-systemd.automount,x-systemd.requires=network-online.target,x-systemd.device-timeout=10 0 0" >> /etc/fstab
-                sudo mount -t nfs 192.168.11.101:/mount /mount
-                # здесь для client
+                sudo mkdir -p /shared/upload
+                sudo chmod 766 /shared
+                sudo chmod 766 /shared/upload
+                sudo cp /vagrant/shared-upload.mount /etc/systemd/system/shared-upload.mount
+                sudo cp /vagrant/network-online.service /etc/systemd/system/netowrk-service.online
+                sudo systemctl daemon-reload
+                sudo systemctl enable netowrk-service.online
+                sudo systemctl start network-service.online
+                sudo systemctl enable shared-upload.mount
+                sudo systemctl start shared-upload.mount
                 SHELL
           end
   end
