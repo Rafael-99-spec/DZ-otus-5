@@ -60,7 +60,6 @@ Vagrant.configure("2") do |config|
                 sudo systemctl start rpcbind
                 sudo systemctl enable rpcbind
                 sudo /sbin/chkconfig network off
-                sudo systemctl stop network
                 cd /
                 sudo mkdir -p /shared/upload
                 sudo chmod 766 /shared
