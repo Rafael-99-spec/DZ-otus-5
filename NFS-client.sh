@@ -1,7 +1,6 @@
 sudo yum -y install nfs-utils
 sudo systemctl start rpcbind
 sudo systemctl enable rpcbind
-sudo systemctl stop network
 sudo chkconfig network off
 cd /
 sudo mkdir -p /shared/upload
