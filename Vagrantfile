@@ -62,15 +62,15 @@ Vagrant.configure("2") do |config|
                 sudo /sbin/chkconfig network off
                 cd /
                 sudo mkdir -p /shared/upload
-                sudo chmod 766 /shared
-                sudo chmod 766 /shared/upload
+                sudo chmod 777 /shared
+                sudo chmod 777 /shared/upload
                 sudo cp /vagrant/shared-upload.mount /etc/systemd/system/shared-upload.mount
                 sudo cp /vagrant/network-online.service /etc/systemd/system/netowrk-service.online
                 sudo systemctl daemon-reload
-                sudo systemctl enable netowrk-service.online
                 sudo systemctl start network-service.online
-                sudo systemctl enable shared-upload.mount
+                sudo systemctl enable network-service.online
                 sudo systemctl start shared-upload.mount
+                sudo systemctl enable shared-upload.mount
                 SHELL
           end
   end
