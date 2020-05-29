@@ -23,7 +23,7 @@ Vagrant.configure("2") do |config|
 
           #box.vm.network "forwarded_port", guest: 3260, host: 3260+offset
 
-          #box.vm.network "private_network", ip: boxconfig[:ip_addr]
+          box.vm.network "private_network", ip: boxconfig[:ip_addr]
 
           box.vm.provider :virtualbox do |vb|
             vb.customize ["modifyvm", :id, "--memory", "512"]
@@ -75,3 +75,4 @@ Vagrant.configure("2") do |config|
           end
   end
 end
+
